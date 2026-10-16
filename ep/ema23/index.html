@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f17">
+  <meta name="description" content="Explora el catálogo de AJSE Hardware y encuentra tecnología para tu próximo proyecto.">
+  <title>AJSE Hardware — tecnología para avanzar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/styles.css">
+  <script defer src="./static/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="AJSE Hardware, inicio">
+        <span class="brand-mark">A<span>✳</span></span>
+        <span class="brand-copy">AJSE<span>HARDWARE STORE</span></span>
+      </a>
+      <div class="workspace-label">TIENDA AJSE</div>
+      <nav class="side-nav" aria-label="Navegación principal">
+        <button class="nav-link active" data-view="catalog" aria-label="Catálogo"><span class="nav-icon" aria-hidden="true">▦</span> Catálogo <span class="nav-arrow" aria-hidden="true">›</span></button>
+        <button class="nav-link" data-view="requests" aria-label="Mis pedidos"><span class="nav-icon" aria-hidden="true">▤</span> Mis pedidos <span id="requestNavCount" class="nav-count">0</span></button>
+        <button class="nav-link" data-view="approvals" aria-label="Gestión de pedidos"><span class="nav-icon" aria-hidden="true">✓</span> Gestión de pedidos <span id="approvalNavCount" class="nav-count accent-count">0</span></button>
+        <button class="nav-link" data-view="about" aria-label="Visión y misión"><span class="nav-icon" aria-hidden="true">✧</span> Visión y misión <span class="nav-arrow" aria-hidden="true">›</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <span class="help-orbit">✦</span>
+          <strong>Explora con intención</strong>
+          <p>Encuentra tecnología para tu próximo proyecto.</p>
+          <a href="#catalog">Explorar catálogo <span>↗</span></a>
+        </div>
+        <div class="sidebar-signature"><span class="signature-mark">A</span><span>TECNOLOGÍA PARA AVANZAR</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>AJSE Hardware</span><span class="crumb-slash">/</span><strong id="breadcrumbCurrent">Catálogo</strong></div>
+        <div class="topbar-actions">
+          <span id="connectionPill" class="connection-pill"><i></i> Conectando...</span>
+          <button id="cartButton" class="cart-button" aria-label="Abrir carrito">
+            <span class="cart-symbol">▣</span><span class="cart-label">Mi carrito</span><span id="cartCount" class="cart-count">0</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section id="catalogView" class="view-section">
+          <section class="hero">
+            <div class="hero-content">
+              <div class="eyebrow"><span class="live-dot"></span> TECNOLOGÍA PARA CREAR Y AVANZAR</div>
+              <h1>La tecnología<br>que te <span>lleva más lejos.</span></h1>
+              <p>AJSE conecta tus ideas con la tecnología para convertir proyectos en soluciones que impulsan el mañana.</p>
+              <div class="hero-actions">
+                <button class="primary-button" id="exploreButton">Explorar catálogo <span>↗</span></button>
+                <span class="hero-note"><span class="note-icon">✳</span> Explora el catálogo AJSE</span>
+              </div>
+              <div class="hero-stats">
+                <div><strong id="heroProductCount">35</strong><small>Productos</small></div>
+                <div><strong id="heroCategoryCount">9</strong><small>Categorías</small></div>
+                <div><strong>AJSE</strong><small>Tu tienda de tecnología</small></div>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-glow"></div>
+              <div class="hero-ring ring-one"></div><div class="hero-ring ring-two"></div>
+              <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=90" alt="">
+              <div class="hero-float-card"><span class="float-spark">✦</span><span><b>Arma tu setup</b><small>Hecho a tu medida</small></span><span class="float-arrow">↗</span></div>
+              <div class="hero-chip">Nº 01 <span>·</span> TECH STORE</div>
+            </div>
+          </section>
+
+          <div id="storeNotice" class="store-notice" role="status" aria-live="polite"></div>
+
+          <section class="recommendation" id="recommendationPanel">
+            <div class="recommend-icon">✧</div>
+            <div class="recommend-copy"><span>RECOMENDACIÓN AJSE</span><strong id="recommendationName">Preparando tu recomendación...</strong><small id="recommendationSubtitle">Se basa en tus intereses y los datos del catálogo.</small></div>
+            <div class="recommend-price"><span>DESDE</span><strong id="recommendationPrice">—</strong></div>
+            <button id="recommendationAdd" class="recommend-add" aria-label="Agregar recomendación al carrito">＋</button>
+          </section>
+
+          <section class="ai-intelligence" id="aiInsightPanel" aria-live="polite">
+            <div class="ai-header">
+              <div>
+                <span class="section-kicker">SELECCIÓN DEL CATÁLOGO</span>
+                <h2>Una opción para ti</h2>
+              </div>
+              <span class="ai-live-badge"><i></i> Según el catálogo</span>
+            </div>
+            <div class="ai-grid">
+              <article class="ai-card ai-card-primary">
+                <div class="ai-card-label">Perfil de compra</div>
+                <h3 id="aiSummaryTitle">Analizando tus preferencias...</h3>
+                <p id="aiSummaryText">Explora una categoría para recibir una recomendación basada en el catálogo.</p>
+                <div class="ai-metrics">
+                  <div><span>Calificación</span><strong id="recommendationRating">—</strong></div>
+                  <div><span>Precio máximo</span><strong id="aiBudget">≤ $4.000.000</strong></div>
+                </div>
+              </article>
+              <article class="ai-card">
+                <div class="ai-card-label">Señales clave</div>
+                <ul id="aiSignals" class="ai-signals">
+                  <li>Cargando señales de compra...</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <div class="section-heading" id="catalog">
+            <div><span class="section-kicker">SELECCIÓN AJSE</span><h2>Encuentra tu próximo <span>upgrade.</span></h2></div>
+            <button class="text-button" id="showAllButton">Ver catálogo completo <span>→</span></button>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Categorías de productos"></div>
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Buscar productos..." autocomplete="off"><kbd>Ctrl K</kbd></label>
+          </div>
+          <div class="catalog-meta"><span id="resultsLabel">Mostrando productos destacados</span><label>Ordenar por <select id="sortSelect" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="price-low">Menor precio</option><option value="price-high">Mayor precio</option><option value="rating">Mejor calificación</option></select></label></div>
+          <div id="productGrid" class="product-grid" aria-live="polite"></div>
+          <div id="emptyCatalog" class="empty-state hidden"><span>⌕</span><strong>No encontramos ese producto</strong><p>Prueba con otra búsqueda o categoría.</p></div>
+          <footer class="disclaimer"><span>ⓘ</span> Precios de referencia en COP, sujetos a cambios. Consulta el enlace de cada producto para verificar disponibilidad y precio vigente.</footer>
+        </section>
+
+        <section id="requestsView" class="view-section hidden">
+          <div class="page-title-row"><div><span class="section-kicker">SEGUIMIENTO</span><h1>Mis pedidos</h1><p>Consulta los pedidos registrados en AJSE y su estado.</p></div><button class="primary-button" data-go-catalog>＋ Nuevo pedido</button></div>
+          <div class="store-notice" role="note">El seguimiento de pedidos se activará cuando la base de datos esté conectada. AJSE no guarda pedidos ficticios en este navegador.</div>
+          <div class="metrics-row" id="requestMetrics"></div>
+          <div id="requestsList" class="request-list"></div>
+          <div id="emptyRequests" class="empty-state hidden"><span>▤</span><strong>Aún no hay pedidos guardados</strong><p>Los pedidos reales aparecerán aquí cuando AJSE conecte la base de datos y habilite los pagos.</p><button class="primary-button" data-go-catalog>Explorar catálogo</button></div>
+        </section>
+
+        <section id="approvalsView" class="view-section hidden">
+          <div class="page-title-row"><div><span class="section-kicker">PANEL DE ADMINISTRACIÓN</span><h1>Gestión de pedidos</h1><p>Consulta los pedidos guardados y el estado verificado de cada pago.</p></div><span class="admin-badge"><i></i> PEDIDOS DE AJSE</span></div>
+          <form id="adminLoginPanel" class="admin-login">
+            <p class="form-footnote">El panel se habilitará al conectar la base de datos y configurar la clave administrativa en el servidor.</p>
+            <label class="field-label" for="adminTokenInput">Clave privada del administrador</label>
+            <input class="form-input" id="adminTokenInput" type="password" autocomplete="current-password" required>
+            <button class="primary-button" type="submit">Consultar pedidos</button>
+            <p id="adminLoginMessage" class="form-footnote" aria-live="polite">El administrador configura esta clave en el servidor AJSE.</p>
+          </form>
+          <div id="adminOrdersPanel" class="hidden">
+            <div class="approval-summary" id="approvalSummary"></div>
+            <div class="approval-filters"><span>Pedidos recibidos</span><div id="approvalFilters"><button class="filter-chip active" data-status="all">Todos</button><button class="filter-chip" data-status="pending">Pago pendiente</button><button class="filter-chip" data-status="approved">Pagados</button><button class="filter-chip" data-status="rejected">Fallidos</button></div></div>
+            <div id="approvalsList" class="request-list"></div>
+            <div id="emptyApprovals" class="empty-state hidden"><span>✓</span><strong>Todo está al día</strong><p>Los nuevos pedidos aparecerán en este panel.</p></div>
+          </div>
+        </section>
+
+        <section id="aboutView" class="view-section hidden">
+          <div class="page-title-row"><div><span class="section-kicker">EL PROPÓSITO DE AJSE</span><h1>Ideas conectadas, futuro en marcha.</h1><p>Tecnología que conecta ideas, impulsa talento y transforma el mañana.</p></div></div>
+          <div class="purpose-grid">
+            <article class="purpose-card"><span class="purpose-icon">◎</span><span class="section-kicker">VISIÓN</span><h2>Acercar el futuro</h2><p>Ser un espacio digital confiable donde cada persona encuentre la tecnología adecuada para aprender, crear y llevar sus proyectos más lejos.</p></article>
+            <article class="purpose-card"><span class="purpose-icon">✦</span><span class="section-kicker">MISIÓN</span><h2>Conectar necesidades con soluciones</h2><p>Organizar un catálogo de hardware y un proceso claro de registro y gestión de pedidos, para que cada compra sea fácil de entender y seguir.</p></article>
+            <article class="purpose-card"><span class="purpose-icon">↗</span><span class="section-kicker">COMPROMISO</span><h2>Innovación al alcance</h2><p>Promover el uso responsable de la tecnología con información clara, una experiencia accesible y herramientas que apoyen nuevas ideas.</p></article>
+          </div>
+          <div class="purpose-note"><span>✳</span><p><strong>AJSE Hardware</strong> — Tecnología que conecta ideas, impulsa talento y transforma el mañana.</p></div>
+        </section>
+      </div>
+      <footer class="app-footer"><span>© 2026 AJSE Hardware</span><span>CATÁLOGO DE TECNOLOGÍA · PRECIOS DE REFERENCIA EN COP</span></footer>
+    </main>
+  </div>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+
+  <div id="cartOverlay" class="overlay hidden" aria-hidden="true">
+    <aside class="cart-drawer" aria-label="Carrito de compras">
+      <div class="drawer-header"><div><span class="section-kicker">TU SELECCIÓN</span><h2>Mi carrito <span id="drawerCartCount">0</span></h2></div><button class="icon-button" data-close-cart aria-label="Cerrar carrito">×</button></div>
+      <div id="cartItems" class="cart-items"></div>
+      <div id="emptyCart" class="empty-cart"><span>▣</span><strong>Tu carrito está vacío</strong><p>Agrega productos del catálogo para registrar un pedido.</p></div>
+      <div id="cartSummary" class="cart-summary hidden"><div><span>Subtotal de referencia</span><strong id="cartSubtotal">$0</strong></div><small id="cartSetupMessage">Puedes preparar tu carrito. El registro del pedido y el pago se habilitarán al conectar la base de datos.</small><button id="checkoutButton" class="primary-button full-button" disabled>Pagos por habilitar</button></div>
+    </aside>
+  </div>
+
+  <div id="requestOverlay" class="overlay hidden" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+      <div class="drawer-header"><div><span class="section-kicker">REGISTRO DEL PEDIDO</span><h2 id="requestModalTitle">Tus datos de contacto</h2></div><button class="icon-button" data-close-request aria-label="Cerrar formulario">×</button></div>
+      <p class="modal-intro">Completa tus datos para crear el pedido. AJSE verificará el inventario y te enviará a Mercado Pago para completar el pago.</p>
+      <form id="requestForm">
+        <label class="field-label" for="clientName">Nombre del cliente</label><input class="form-input" id="clientName" name="client" maxlength="100" required placeholder="Tu nombre completo">
+        <label class="field-label" for="clientEmail">Correo electrónico</label><input class="form-input" id="clientEmail" name="email" type="email" maxlength="150" required placeholder="nombre@correo.com">
+        <label class="field-label" for="requestNote">Nota para el equipo AJSE <span>(opcional)</span></label><textarea class="form-input" id="requestNote" name="note" rows="3" maxlength="500" placeholder="Cuéntanos brevemente para qué necesitas estos equipos..."></textarea>
+        <div class="form-total"><span>Total estimado</span><strong id="formTotal">$0</strong></div>
+        <button id="submitRequest" class="primary-button full-button" type="submit">Registrar pedido <span>→</span></button>
+        <p class="form-footnote">El inventario se reserva durante 30 minutos. AJSE confirmará el pago cuando Mercado Pago lo notifique y el servidor lo verifique.</p>
+      </form>
+    </section>
+  </div>
+
+  <template id="productTemplate">
+    <article class="product-card">
+      <div class="product-image-wrap"><div class="product-image-fallback" aria-hidden="true"><span>AJSE</span><small></small></div><img class="product-image" alt="" loading="lazy"><span class="product-badge"></span><button class="quick-add" aria-label="Agregar al carrito">＋</button></div>
+      <div class="product-info"><div class="product-category"></div><h3 class="product-name"></h3><p class="product-subtitle"></p><div class="product-rating"><span>★</span> <b></b><span class="stock-label"></span></div><div class="product-bottom"><div><span class="price-caption">PRECIO DE REFERENCIA</span><strong class="product-price"></strong></div><button class="card-add">Agregar <span>＋</span></button></div><a class="source-link" target="_blank" rel="noreferrer">Consultar vendedor ↗</a></div>
+    </article>
+  </template>
+</body>
+</html>
